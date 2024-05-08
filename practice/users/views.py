@@ -23,7 +23,8 @@ def signup(request):
                 image=request.FILES.get('profile_image'),
             )
 
-            profile.save() #장고에서 제공되는 것 말고 우리가 만든 모델은 save를 해줘야 db에 반영이됨
+            profile.save()
+             #우리가 만든 모델은 save를 해줘야 db에 반영이됨
             auth.login(request, user)
             return redirect('home')
         

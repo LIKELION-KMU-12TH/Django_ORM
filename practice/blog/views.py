@@ -59,6 +59,8 @@ def update(request, blog_id):
 
 def delete(request, blog_id):
     delete_blog = get_object_or_404(Blog, pk=blog_id)
+    if delete_blog.author != request.user:
+        return redirect('home')
     delete_blog.delete()
     return redirect('home')
 
